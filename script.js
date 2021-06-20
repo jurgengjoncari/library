@@ -6,7 +6,7 @@ function Book(title, author, pages, read) {
 	this.pages = pages;
 	this.read = read;
 	this.info = function () {
-		return `${this.title} by ${this.author}, ${this.pages} pages, ${			this.read}`;
+		return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
 	}
 }
 
@@ -21,3 +21,19 @@ function displayBookOnPage() {
 	}
 }
 
+let button = document.querySelector("button");
+// button.addEventListener("click", function () {
+	let table = document.querySelector("tbody"); 
+	
+	let row = table.insertRow();
+
+	let inputs = document.querySelectorAll("input");
+
+	for (input of inputs) {
+		input.addEventListener("click", function () {
+			let cell = row.insertCell();
+
+			let answer = document.createTextNode(input.value);
+			cell.appendChild(answer);
+		})
+	}

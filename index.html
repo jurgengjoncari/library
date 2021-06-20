@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<link href="style.css" rel="stylesheet">
-		<script src="script.js"></script>
 		<title>Library</title>
 	</head>
 	<body>
@@ -10,19 +9,26 @@
 		<form>
 			<label>Author: </label><input type="text" required>
 			<label>Title: </label><input type="text" required>
-			<label>Number of pages: </label><input type="number" required>
+			<label>Total pages: </label><input type="number" required>
 			<label>Read? </label>
 			<input type="radio" name="read" id="yes"><label for="yes">Yes</label>
 			<input type="radio" name="read" id="no"><label for="no">No</label>
 		</form>
 		<table>
+			<colgroup>
+				<col class="author">
+				<col class="title">
+				<col class="pages">
+				<col class="read">
+			</colgroup>
 			<thead>
-				<th>Author</th>
-				<th>Title</th>
-				<th>Number of pages</th>
-				<th>Pages read</th>
+				<th class="author">Author</th>
+				<th class="title">Title</th>
+				<th>Total pages</th>
+				<th>Read?</th>
 			</thead>
 			<tbody></tbody>
 		</table>
+		<script src="script.js"></script>
 	</body>
 </html>
