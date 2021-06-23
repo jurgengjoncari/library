@@ -10,43 +10,51 @@ function Book(title, author, pages, read) {
 	// }
 }
 
-let book0 = new Book("Dan Brown", "The Da Vinci Code", 359, "Yes");
-let book1 = new Book("Khaled Hosseini", "The Kite Runner", 371, "Yes");
-
 function addBookToLibrary(book) {
-	myLibrary.push(book);
+	myLibrary.unshift(book);
 }
 
-addBookToLibrary(book0);
-addBookToLibrary(book1);
-
-// console.log(myLibrary);
 
 let table = document.querySelector("tbody");
 
-let inputs = document.querySelectorAll("input");
-
 function displayBookOnPage() {
-	for (book of myLibrary) {
-		let row = table.insertRow();
-
-		for (value of Object.values(book)) {
-			let cell = row.insertCell();
-			let text = document.createTextNode(String(value));
-			cell.appendChild(text);
-		}
+	let book = myLibrary[0];
+	let row = table.insertRow(0);
+	for (value of Object.values(book)) {
+		let cell = row.insertCell();
+		let text = document.createTextNode(String(value));
+		cell.appendChild(text);
 	}
 }
 
+
+let book0 = new Book("Dan Brown", "The Da Vinci Code", 359, "Yes");
+addBookToLibrary(book0);
 displayBookOnPage();
 
-let button = document.querySelector("form button");
+let book1 = new Book("Khaled Hosseini", "The Kite Runner", 371, "Yes");
+addBookToLibrary(book1);
+displayBookOnPage();
 
-button.addEventListener("click", function () {
-	let author = document.querySelector("#author").value;
-	let title = document.querySelector("#title").value;
-	let pages = document.querySelector("#pages").value;
-	let read = document.querySelector("[name=read]").value;
+
+let dialog = document.querySelector("dialog");
+
+let newButton = document.querySelector("#new");
+
+newButton.addEventListener("click", function () {
+	dialog.showModal();
+})
+
+
+let form = document.querySelector("form");
+
+let addButton = form.add;
+
+addButton.addEventListener("click", function () {
+	let author = form.author.value;
+	let title = form.title.value;
+	let pages = form.pages.value;
+	let read = form.read.value;
 
 	let book = new Book(author, title, pages, read);
 

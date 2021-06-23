@@ -1,1 +1,87 @@
+html, body {
+	height: 100%;
+	background-color: rgb(18, 18, 18);
+}
 
+* {
+	color: white;
+	font-size: 14px;
+	font-family: Roboto, Sans-serif;
+}
+
+table {
+	table-layout: fixed;
+	margin: auto;
+}
+
+thead tr th:nth-child(1), th:nth-child(2) {
+	width: 40ch;
+}
+
+tr:nth-child(odd) td {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+tr:nth-child(even) td, th {
+	background-color: rgba(255, 255, 255, 0.07);
+}
+
+tr {
+	text-align: center;
+	height: 52px;
+}
+
+th {
+	height: 56px;
+}
+
+td, th {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+button {
+	border: none;
+	height: 36px;
+	min-width: 64px;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: rgba(255, 255, 255, 0.05);
+	display: block;
+	margin: 12px auto;
+}
+
+dialog {
+	border: none;
+	background-color: rgba(255, 255, 255, 0.16);
+	padding: 24px;
+}
+
+dialog::backdrop {
+	background-color: rgb(18, 18, 18);
+}
+
+form {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+input {
+	border: none;
+	background-color: rgb(18, 18, 18);
+	margin-left: auto;
+}
+
+[type=text], [type=number] {
+	height: 28px;
+	padding-left: 16px;
+	padding-right: 12px;
+	margin-bottom: 16px;
+}
+
+[type=text] {
+	width: 280px;
+}
+
+[type=number] {
+	width: 100px;
+}
