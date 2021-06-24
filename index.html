@@ -7,7 +7,7 @@
 		<title>Library</title>
 	</head>
 	<body>
-		<button id="new">NEW BOOK</button>
+		<button id="new"><b>NEW BOOK</b></button>
 		<dialog>
 			<form method="dialog">
 				<div>
@@ -22,9 +22,9 @@
 				<div>
 					<p>Read? </p>
 					<label for="yes"><input type="radio" value="Yes" name="read" id="yes">Yes</label>
-					<label for="no"><input type="radio" name="read" value="No" id="no">No</label>
+					<label for="no"><input type="radio" name="read" value="No" id="no" checked>No</label>
 				</div>
-				<button id="add">ADD BOOK</button>
+				<button id="add"><b>ADD BOOK</b></button>
 			</form>
 		</dialog>
 		<table>
@@ -33,12 +33,14 @@
 				<col class="title">
 				<col class="pages">
 				<col class="read">
+				<col class="remove">
 			</colgroup>
 			<thead>
-				<th class="author" scope="col">Author</th>
-				<th class="title" scope="col">Title</th>
-				<th scope="col">Total pages</th>
-				<th scope="col">Read?</th>
+				<th scope="col" class="author">Author</th>
+				<th scope="col" class="title">Title</th>
+				<th scope="col" class="pages">Total pages</th>
+				<th scope="col" class="read">Read?</th>
+				<th scope="col" class="remove">Remove</th>
 			</thead>
 			<tbody></tbody>
 		</table>
