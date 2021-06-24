@@ -2,12 +2,19 @@ let myLibrary = [];
 
 let index = 0;
 
-function Book(title, author, pages, read) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read;
-	this.index = index;
+function createBook(title, author, pages, read) {
+	return {
+		title: title,
+		author: author,
+		pages: pages,
+		read: read,
+		index: index,
+	}
+	// this.title = title;
+	// this.author = author;
+	// this.pages = pages;
+	// this.read = read;
+	// this.index = index;
 	// this.info = function () {
 	//	return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
 	// }
@@ -66,15 +73,15 @@ function displayBookOnPage() {
 }
 
 //ADD SOME DATA MANUALLY
-let book0 = new Book("Dan Brown", "The Da Vinci Code", 359, "Yes");
+let book0 = createBook("Dan Brown", "The Da Vinci Code", 359, "Yes");
 addBookToLibrary(book0);
 displayBookOnPage();
 
-let book1 = new Book("Khaled Hosseini", "The Kite Runner", 371, "Yes");
+let book1 = createBook("Khaled Hosseini", "The Kite Runner", 371, "Yes");
 addBookToLibrary(book1);
 displayBookOnPage();
 
-let book2 = new Book("Carl Jung", "Psychological Types", 100, "Yes");
+let book2 = createBook("Carl Jung", "Psychological Types", 100, "Yes");
 addBookToLibrary(book2);
 displayBookOnPage();
 
@@ -98,7 +105,7 @@ addButton.addEventListener("click", function () {
 	let pages = form.pages.value;
 	let read = form.read.value;
 
-	let book = new Book(author, title, pages, read);
+	let book = createBook(author, title, pages, read);
 
 	addBookToLibrary(book);
 
