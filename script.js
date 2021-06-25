@@ -10,14 +10,6 @@ function createBook(title, author, pages, read) {
 		read: read,
 		index: index,
 	}
-	// this.title = title;
-	// this.author = author;
-	// this.pages = pages;
-	// this.read = read;
-	// this.index = index;
-	// this.info = function () {
-	//	return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-	// }
 }
 
 function addBookToLibrary(book) {
@@ -52,9 +44,9 @@ function displayBookOnPage() {
 		}
 	}
 
+	// REMOVE BOOK
 	let cell = row.insertCell();
 
-	// REMOVE BOOK
 	let removeButton = document.createElement("button");
 
 	removeButton.textContent = "X";
