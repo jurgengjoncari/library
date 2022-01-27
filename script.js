@@ -12,7 +12,7 @@ function createBook(title, author, pages, read) {
 	}
 }
 
-function addBookToLibrary(book) {
+function addToLibrary(book) {
 	myLibrary.push(book);
 
 	index++;
@@ -66,15 +66,15 @@ function displayBookOnPage() {
 
 //ADD SOME DATA MANUALLY
 let book0 = createBook("Dan Brown", "The Da Vinci Code", 359, "Yes");
-addBookToLibrary(book0);
+addToLibrary(book0);
 displayBookOnPage();
 
 let book1 = createBook("Khaled Hosseini", "The Kite Runner", 371, "Yes");
-addBookToLibrary(book1);
+addToLibrary(book1);
 displayBookOnPage();
 
 let book2 = createBook("Carl Jung", "Psychological Types", 100, "Yes");
-addBookToLibrary(book2);
+addToLibrary(book2);
 displayBookOnPage();
 
 // DIALOG
@@ -99,7 +99,7 @@ addButton.addEventListener("click", function () {
 
 	let book = createBook(author, title, pages, read);
 
-	addBookToLibrary(book);
+	addToLibrary(book);
 
 	displayBookOnPage();
 })
