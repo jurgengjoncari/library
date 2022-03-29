@@ -2,14 +2,11 @@ let myLibrary = [];
 
 let index = 0;
 
-function createBook(title, author, pages, read) {
-	return {
-		title: title,
-		author: author,
-		pages: pages,
-		read: read,
-		index: index,
-	}
+function Book(title, author, pages, read) {
+	this.title = title
+	this.author = author
+	this.pages = pages
+	this.read = read
 }
 
 function addToLibrary(book) {
@@ -18,34 +15,30 @@ function addToLibrary(book) {
 	index++;
 }
 
-// DISPLAY ON PAGE
+// DISPLAY ROW ON PAGE
 let table = document.querySelector("tbody");
 
 function displayBookOnPage() {
-	let last = myLibrary.length - 1;
-	
-	let book = myLibrary[last];
+	let newBook = myLibrary.at(-1)
 
-	let row = table.insertRow();
+	let newRow = table.insertRow();
 
-	row.setAttribute("data-index", String(index));
+	newRow.setAttribute("data-index", String(index));
 
-	for (let i = 0; i < 4; i++) {
-		let cell = row.insertCell();
+	for (const property in newBook) {
+		let newCell = newRow.insertCell();
 
-		let value = Object.values(book)[i];
+		let value = newBook[property];
 
-		let text = document.createTextNode(String(value));
-
-		cell.appendChild(text);
+		newCell.textContent = value
 
 		if (value == Number(value)) {
-			cell.style.textAlign = "right";
+			newCell.style.textAlign = "right";
 		}
 	}
 
-	// REMOVE BOOK
-	let cell = row.insertCell();
+	// ADD "REMOVE BOOK" ICON AND "REMOVE" FUNCTIONALITY TO THE ROW
+	let cell = newRow.insertCell();
 
 	let removeButton = document.createElement("button");
 
@@ -58,22 +51,22 @@ function displayBookOnPage() {
 			book.index = index;
 		})
 
-		row.remove();
+		newRow.remove();
 	})
 
 	cell.appendChild(removeButton);
 }
 
 //ADD SOME DATA MANUALLY
-let book0 = createBook("Dan Brown", "The Da Vinci Code", 359, "Yes");
+let book0 = new Book("Dan Brown", "The Da Vinci Code", 359, "Yes");
 addToLibrary(book0);
 displayBookOnPage();
 
-let book1 = createBook("Khaled Hosseini", "The Kite Runner", 371, "Yes");
+let book1 = new Book("Khaled Hosseini", "The Kite Runner", 371, "Yes");
 addToLibrary(book1);
 displayBookOnPage();
 
-let book2 = createBook("Carl Jung", "Psychological Types", 100, "Yes");
+let book2 = new Book("Carl Jung", "Psychological Types", 100, "Yes");
 addToLibrary(book2);
 displayBookOnPage();
 
@@ -97,7 +90,7 @@ addButton.addEventListener("click", function () {
 	let pages = form.pages.value;
 	let read = form.read.value;
 
-	let book = createBook(author, title, pages, read);
+	let book = new Book(author, title, pages, read);
 
 	addToLibrary(book);
 
