@@ -1,0 +1,20 @@
+[
+    {
+        "author": "Dan Brown",
+        "title": "The Da Vinci Code",
+        "pages": 359,
+        "read": "Yes"
+    },
+    {
+        "author": "Khaled Hosseini",
+        "title": "The Kite Runner",
+        "pages": 371,
+        "read": "Yes"
+    },
+    {
+        "author": "Carl Jung",
+        "title": "Psychological Types",
+        "pages": 100,
+        "read": "Yes"
+    }
+]

@@ -1,31 +1,49 @@
-let myLibrary = [];
+class Library {
+	constructor() {
+		this.booksList = []
+		this.index = 0
+	}
 
-let index = 0;
+	add (book) {
+		this.booksList.push(book)
 
-function Book(title, author, pages, read) {
-	this.title = title
-	this.author = author
-	this.pages = pages
-	this.read = read
+		this.index++
+	}
+
+	remove (book) {
+		this.booksList.filter((myBook) => myBook.index = book.index)
+	}
 }
 
-function addToLibrary(book) {
-	myLibrary.push(book);
+let myLibrary = new Library;
 
-	index++;
+class Book {
+	constructor (title, author, pages, read) {
+		this.title = title
+		this.author = author
+		this.pages = pages
+		this.read = read
+		this.index = myLibrary.index
+	}
+
+	get properties() {
+		return ['author', 'title', 'pages', 'read']
+	}
 }
 
 // DISPLAY ROW ON PAGE
 let table = document.querySelector("tbody");
 
+let thead = document.querySelector("thead")
+
 function displayBookOnPage() {
-	let newBook = myLibrary.at(-1)
+	let newBook = myLibrary.booksList.at(-1)
 
 	let newRow = table.insertRow();
 
-	newRow.setAttribute("data-index", String(index));
+	newRow.setAttribute("data-index", String(newBook.index));
 
-	for (const property in newBook) {
+	for (const property of newBook.properties) {
 		let newCell = newRow.insertCell();
 
 		let value = newBook[property];
@@ -44,12 +62,9 @@ function displayBookOnPage() {
 
 	removeButton.textContent = "X";
 
-	removeButton.setAttribute("data-index", index);
+	removeButton.setAttribute("data-index", newBook.index);
 
 	removeButton.addEventListener("click", function () {
-		myLibrary.filter(function (book) {
-			book.index = index;
-		})
 
 		newRow.remove();
 	})
@@ -58,16 +73,23 @@ function displayBookOnPage() {
 }
 
 //ADD SOME DATA MANUALLY
+import myBooks from './my-books.json' assert {type: "json"}
+
+for (let book of myBooks) {
+	
+}
+
 let book0 = new Book("Dan Brown", "The Da Vinci Code", 359, "Yes");
-addToLibrary(book0);
+myLibrary.add(book0);
 displayBookOnPage();
+console.log(book0)
 
 let book1 = new Book("Khaled Hosseini", "The Kite Runner", 371, "Yes");
-addToLibrary(book1);
+myLibrary.add(book1);
 displayBookOnPage();
 
 let book2 = new Book("Carl Jung", "Psychological Types", 100, "Yes");
-addToLibrary(book2);
+myLibrary.add(book2);
 displayBookOnPage();
 
 // DIALOG
@@ -92,7 +114,7 @@ addButton.addEventListener("click", function () {
 
 	let book = new Book(author, title, pages, read);
 
-	addToLibrary(book);
+	myLibrary.add(book);
 
 	displayBookOnPage();
 })
