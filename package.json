@@ -1,0 +1,23 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "This page serves to display a list of read books. You can add new books, and remove existing ones.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jurgengjoncari/library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jurgengjoncari/library/issues"
+  },
+  "homepage": "https://github.com/jurgengjoncari/library#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
