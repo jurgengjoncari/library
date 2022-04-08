@@ -11,15 +11,7 @@ module.exports = class Library {
 	}
 
 	remove (book) {
-		this.booksList.filter((myBook) => {
-            console.log(`myBook.index: ${myBook.index}`);
-            console.log(`book.index: ${book.index}`)
-            if (myBook.index == book.index) {
-                console.log(`myBook.index == book.index is ${myBook.index == book.index}`);
-                return false
-            }
-        })
-        console.log(this.booksList);
+		this.booksList = this.booksList.filter((myBook) => myBook.index == book.index)
 	}
 }
 
