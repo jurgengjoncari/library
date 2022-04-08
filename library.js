@@ -1,7 +1,9 @@
-module.exports = class Library {
+module.exports = class Library extends Array {
 	constructor() {
+		super()
 		this.booksList = []
 		this.index = 0
+		// return this.booksList
 	}
 
 	add (book) {
@@ -11,8 +13,10 @@ module.exports = class Library {
 	}
 
 	remove (book) {
-		this.booksList = this.booksList.filter((myBook) => myBook.index == book.index)
+		this.booksList = this.booksList.filter((myBook) => myBook.index != book.index)
 	}
+
+	set index(i) {}
 }
 
 // let myLibrary = new Library;

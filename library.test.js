@@ -13,6 +13,7 @@ test('Adds book to library', () => {
 
 test('Create and Remove book from library', () => {
     const myLibrary = new Library
+    console.log(myLibrary);
     const myBook = {
         title: 'The Da Vinci Code',
         index: 1
